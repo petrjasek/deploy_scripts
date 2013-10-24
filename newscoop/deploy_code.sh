@@ -4,12 +4,10 @@
 # APP="tw"
 # DEVELOPER="main"
 # BRANCH=${bamboo.planRepository.branchName}
-# WORKDIR=${bamboo.build.working.directory}
 #############################################
 
-pwd
-
 #{{{ Variables
+WORKDIR="$(pwd)"
 DBUSER="$APP"_"$DEVELOPER"_"$BRANCH"
 DBNAME="$DBUSER"_db
 DBUSER=$(echo "$DBUSER" | md5sum | awk '{print substr($0,0,15)}') # first 16 symbols of md5 hash
