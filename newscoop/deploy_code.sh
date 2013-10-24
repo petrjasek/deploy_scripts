@@ -7,6 +7,8 @@
 # WORKDIR=${bamboo.build.working.directory}
 #############################################
 
+pwd
+
 #{{{ Variables
 DBUSER="$APP"_"$DEVELOPER"_"$BRANCH"
 DBNAME="$DBUSER"_db
