@@ -1,12 +1,12 @@
 #!/bin/sh
 
 ###Environment variables:###################
-# APP="tw"
-# DEVELOPER="main"
 # BRANCH=${bamboo.planRepository.branchName}
 #############################################
 
 #{{{ Variables
+APP="$bamboo_app"
+DEVELOPER="$bamboo_developer"
 WORKDIR="$(pwd)"
 DBUSER="$APP"_"$DEVELOPER"_"$BRANCH"
 DBNAME="$DBUSER"_db
