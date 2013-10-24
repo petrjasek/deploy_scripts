@@ -45,6 +45,8 @@ cp -R $WORKDIR/newscoop/* $INSTALL_DIR/ &&
 cp -R $WORKDIR/plugins/* $INSTALL_DIR/plugins/ &&
 cp -R $WORKDIR/dependencies/include/* $INSTALL_DIR/include/ &&
 cp -R $WORKDIR/themes/* $INSTALL_DIR/themes/ &&
+cp $WORKDIR/deploy_scripts/newscoop/configuration.php $INSTALL_DIR/conf/ &&
+cp $WORKDIR/deploy_scripts/newscoop/system_preferences.php $INSTALL_DIR/ &&
 cd $INSTALL_DIR && pwd
 #}}}
 
@@ -57,9 +59,6 @@ php composer.phar dump-autoload --optimize &&
 
 mv htaccess .htaccess ;
 rm -rf cache/* ;
-
-cp /var/dumps/configuration.php conf/
-cp /var/dumps/system_preferences.php ./
 
 rm -rf images
 ln -s ../"$IMG_FOLDER" images
