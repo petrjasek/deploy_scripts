@@ -1,14 +1,14 @@
 #!/bin/bash
 
 #Environment variables
+# APP="tw"
+# DEVELOPER="main"
 # BRANCH=${bamboo.planRepository.branchName}
 ###
 
 #{{{ Variables
-APP="tw"
-DEVELOPER="main"
 #GREP_STR='TagesWoche | Die Wochenzeitung'
-GREP_STR='Die Wochenzeitung'
+test $APP = 'tw' && GREP_STR='Die Wochenzeitung'
 URL="$BRANCH.$DEVELOPER.$APP.newscoop-test.sourcefabric.org"
 #}}}
 
