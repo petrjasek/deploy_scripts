@@ -1,5 +1,7 @@
 #!/bin/sh
 
+APP="$bamboo_app"
+
 #default path for tw:
 test $APP = "tw" && REMOTE_PATH="/var/www/tw-reloaded/images"
 test "$BRANCH" = 'wobs-stable' && REMOTE_PATH="/var/www/tw-pre-live/images"
