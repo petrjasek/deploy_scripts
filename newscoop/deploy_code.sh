@@ -1,13 +1,13 @@
 #!/bin/sh
 
 ###Environment variables:###################
-# BRANCH=${bamboo.repository.branch.name}
+# APP="tw"
+# DEVELOPER="main"
+# BRANCH=${bamboo.planRepository.branchName}
 # WORKDIR=${bamboo.build.working.directory}
 #############################################
 
 #{{{ Variables
-APP="tw"
-DEVELOPER="main"
 DBUSER="$APP"_"$DEVELOPER"_"$BRANCH"
 DBNAME="$DBUSER"_db
 DBUSER=$(echo "$DBUSER" | md5sum | awk '{print substr($0,0,15)}') # first 16 symbols of md5 hash
@@ -45,28 +45,29 @@ cp -R $WORKDIR/newscoop/* $INSTALL_DIR/ &&
 cp -R $WORKDIR/plugins/* $INSTALL_DIR/plugins/ &&
 cp -R $WORKDIR/dependencies/include/* $INSTALL_DIR/include/ &&
 cp -R $WORKDIR/themes/* $INSTALL_DIR/themes/ &&
-cd $INSTALL_DIR &&
-pwd
+cd $INSTALL_DIR && pwd
 #}}}
 
+#{{{ Install composer
 export COMPOSER_HOME="$INSTALL_DIR" &&
 curl -s https://getcomposer.org/installer | php &&
 php composer.phar install --no-dev --prefer-dist &&
 php composer.phar dump-autoload --optimize &&
+#}}}
 
 mv htaccess .htaccess ;
 rm -rf cache/* ;
-rm conf/upgrading.php 2> /dev/null ;
 
 cp /var/dumps/configuration.php conf/
 cp /var/dumps/system_preferences.php ./
+
 rm -rf images
 ln -s ../"$IMG_FOLDER" images
 
+#{{{ Generate DB config file
 cat >conf/database_conf.php <<EOF
 <?php
 global \$Campsite;
-
 \$Campsite['DATABASE_NAME'] = '$DBNAME';
 \$Campsite['DATABASE_SERVER_ADDRESS'] = 'localhost';
 \$Campsite['DATABASE_SERVER_PORT'] = '3306';
@@ -81,8 +82,9 @@ global \$Campsite;
 \$Campsite['db']['pass'] = \$Campsite['DATABASE_PASSWORD'];
 ?>
 EOF
-
+#}}}
 
 chown -R www-data:www-data $INSTALL_DIR &&
 #su - www-data -c "php $INSTALL_DIR/upgrade.php" &&
+#rm conf/upgrading.php 2> /dev/null ;
 service apache2 reload
