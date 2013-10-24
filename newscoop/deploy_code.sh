@@ -14,7 +14,7 @@ DBUSER=$(echo "$DBUSER" | md5sum | awk '{print substr($0,0,15)}') # first 16 sym
 INSTALL_DIR="/var/www/$APP/$DEVELOPER/$BRANCH"
 
 #default image folder:
-IMG_FOLDER="images_dev"
+IMG_FOLDER="images"
 #image folder for stable branch:
 test "$BRANCH" = 'wobs-stable' && IMG_FOLDER="images_prelive"
 
