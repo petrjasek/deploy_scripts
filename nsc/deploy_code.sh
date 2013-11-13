@@ -20,6 +20,8 @@ IMG_FOLDER="images"
 
 #}}}
 
+ls -laho
+
 #{{{ Create virtual host for instance
 cd /etc/apache2/sites-enabled/
 cat >"$APP"_"$BRANCH" <<EOF
