@@ -48,7 +48,7 @@ cp -R $WORKDIR/plugins/* $INSTALL_DIR/plugins/ &&
 cp -R $WORKDIR/dependencies/include/* $INSTALL_DIR/include/ &&
 cp -R $WORKDIR/themes/* $INSTALL_DIR/themes/ &&
 cp $WORKDIR/deploy_scripts/nsc/configuration.php $INSTALL_DIR/conf/ &&
-cp $WORKDIR/deploy_scripts/nsc/system_preferences.php $INSTALL_DIR/ &&
+cp $WORKDIR/deploy_scripts/nsc/system_preferences.php $INSTALL_DIR/
 cd $INSTALL_DIR && pwd
 #}}}
 
