@@ -34,6 +34,8 @@ cat >"$APP"_"$BRANCH" <<EOF
               Order allow,deny
               Allow from all
       </Directory>
+	ErrorLog '${APACHE_LOG_DIR}'/error.$APP.$BRANCH.log
+	CustomLog '${APACHE_LOG_DIR}'/access.$APP.$BRANCH.log combined
 </VirtualHost>
 EOF
 #}}}
