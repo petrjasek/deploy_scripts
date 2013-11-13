@@ -26,7 +26,6 @@ cat >"$APP"_"$BRANCH" <<EOF
 <VirtualHost *:80>
       DocumentRoot $INSTALL_DIR
       ServerName $BRANCH.$APP.$DEVELOPER.sourcefabric.net
-      ServerAlias www.$BRANCH.$APP.$DEVELOPER.sourcefabric.net
       DirectoryIndex index.php index.html
       <Directory $INSTALL_DIR>
               Options -Indexes FollowSymLinks MultiViews
@@ -34,8 +33,8 @@ cat >"$APP"_"$BRANCH" <<EOF
               Order allow,deny
               Allow from all
       </Directory>
-	ErrorLog '${APACHE_LOG_DIR}'/error.$APP.$BRANCH.log
-	CustomLog '${APACHE_LOG_DIR}'/access.$APP.$BRANCH.log combined
+	ErrorLog \${APACHE_LOG_DIR}/error.$APP.$BRANCH.log
+	CustomLog \${APACHE_LOG_DIR}/access.$APP.$BRANCH.log combined
 </VirtualHost>
 EOF
 #}}}
