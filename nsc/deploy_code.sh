@@ -20,10 +20,9 @@ IMG_FOLDER="images"
 
 #}}}
 
-ls -laho
-
 #{{{ Create virtual host for instance
 cd /etc/apache2/sites-enabled/
+rm composer.phar
 cat >"$APP"_"$BRANCH" <<EOF
 <VirtualHost *:80>
       DocumentRoot $INSTALL_DIR
