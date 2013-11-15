@@ -89,6 +89,6 @@ EOF
 
 chown -R www-data:www-data $INSTALL_DIR &&
 #su - www-data -c "php $INSTALL_DIR/upgrade.php" &&
-#rm conf/upgrading.php 2> /dev/null ;
+rm conf/upgrading.php 2> /dev/null ;
 service apache2 reload
 
