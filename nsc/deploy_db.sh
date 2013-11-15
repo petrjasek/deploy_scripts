@@ -17,7 +17,7 @@ PASSWORD="$bamboo_password"
 DBUSER="$APP"_"$BRANCH"
 DBNAME="$DBUSER"_db
 DBUSER=$(echo "$DBUSER" | md5sum | awk '{print substr($0,0,15)}') # first 16 symbols of md5 hash
-DUMP_FILE="$BACKUP_PATH"/backup-*/lab_"$APP"-prelive-database.sql
+DUMP_FILE=lab_"$APP"-prelive-database.sql
 OLD_URL=$APP"-prelive.lab.sourcefabric.org"
 
 
@@ -39,6 +39,7 @@ mysql -p$PASSWORD  -e "create database \`$DBNAME\` ;"
 echo "grant all privileges on \`$DBNAME\`.* to \`$DBUSER\`@\`localhost\` identified by '$DBUSER' with grant option;"
 mysql -p$PASSWORD  -e "grant all privileges on \`$DBNAME\`.* to \`$DBUSER\`@\`localhost\` identified by '$DBUSER' with grant option;"
 
+cd backup-*
 echo "mysql $DBNAME < $DUMP_FILE"
 mysql -p$PASSWORD  $DBNAME < $DUMP_FILE
 
