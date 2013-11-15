@@ -64,6 +64,8 @@ rm -rf cache/* ;
 
 rm -rf images
 ln -s ../"$IMG_FOLDER" images
+rm -rf files
+ln -s ../"$IMG_FOLDER" files
 
 #{{{ Generate DB config file
 cat >conf/database_conf.php <<EOF
