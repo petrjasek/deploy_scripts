@@ -45,13 +45,16 @@ rm -fr $WORKDIR/newscoop/images &&
 cp -R $WORKDIR/newscoop/* $INSTALL_DIR/ &&
 cp -R $WORKDIR/plugins/* $INSTALL_DIR/plugins/ &&
 cp -R $WORKDIR/dependencies/include/* $INSTALL_DIR/include/ &&
-cp -R $WORKDIR/themes/* $INSTALL_DIR/themes/ &&
+mkdir -p $INSTALL_DIR/themes_git/ &&
+cp -R $WORKDIR/themes_git/* $INSTALL_DIR/themes_git/ &&
 cp $WORKDIR/deploy_scripts/nsc/configuration.php $INSTALL_DIR/conf/ &&
 cp $WORKDIR/deploy_scripts/nsc/system_preferences.php $INSTALL_DIR/
 cd $INSTALL_DIR && pwd
 
-cd themes
-test ! -d publication_1 && (mkdir -p publication_1/theme_1; mv * publication_1/theme_1)
+cd themes_git
+test ! -d publication_* &&
+	(mkdir -p ../themes/publication_1/theme_1; mv * ../themes/publication_1/theme_1) ||
+	mv * ../themes/
 cd ..
 #}}}
 
