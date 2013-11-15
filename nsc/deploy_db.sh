@@ -16,7 +16,5 @@ rm -fr backup-*
 tar xvf backup.tar.gz
 rsync -a --protect-args --rsync-path="sudo rsync" $IMG_SRC $IMG_DEST
 rsync -a --protect-args --rsync-path="sudo rsync" $FILES_SRC $FILES_DEST
-ls -laho
-ls -laho backup-*
-ls -laho $INSTALL_DIR
+chown www-data -R $INSTALL_DIR
 
