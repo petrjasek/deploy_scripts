@@ -8,7 +8,7 @@
 APP="$bamboo_app"
 DEVELOPER="$bamboo_developer"
 WORKDIR="$(pwd)"
-DBUSER="$APP"_"$DEVELOPER"_"$BRANCH"
+DBUSER="$APP"_"$BRANCH"
 DBNAME="$DBUSER"_db
 DBUSER=$(echo "$DBUSER" | md5sum | awk '{print substr($0,0,15)}') # first 16 symbols of md5 hash
 INSTALL_DIR="/var/www/$APP/$BRANCH"

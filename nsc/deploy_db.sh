@@ -46,6 +46,6 @@ mysql -p$PASSWORD  $DBNAME < $DUMP_FILE
 #echo "INSERT INTO Aliases (\`Id\`, \`Name\`, \`IdPublication\`) VALUES (NULL, '$BRANCH.$DEVELOPER.newscoop-test.sourcefabric.org', '2');"
 #mysql $DBNAME -e "INSERT INTO Aliases (\`Id\`, \`Name\`, \`IdPublication\`) VALUES (NULL, '$BRANCH.$DEVELOPER.newscoop-test.sourcefabric.org', '2');"
 
-echo " UPDATE Aliases SET Name='$BRANCH.$DEVELOPER.$APP.newscoop-test.sourcefabric.org' WHERE Name='$OLD_URL'"
-mysql -p$PASSWORD  $DBNAME -e "UPDATE Aliases SET Name='$BRANCH.$DEVELOPER.$APP.newscoop-test.sourcefabric.org' WHERE Name='$OLD_URL'"
+echo " UPDATE Aliases SET Name='$BRANCH.$APP.$DEVELOPER.sourcefabric.net' WHERE Name='$OLD_URL'"
+mysql -p$PASSWORD  $DBNAME -e "UPDATE Aliases SET Name='$BRANCH.$APP.$DEVELOPER.sourcefabric.net' WHERE Name='$OLD_URL'"
 
