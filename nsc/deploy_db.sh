@@ -8,11 +8,9 @@ APP="$bamboo_app"
 DEVELOPER="$bamboo_developer"
 
 BACKUP_PATH="/var/dumps/""$APP"
-INSTALL_DIR="/var/www/""$APP"
+INSTALL_DIR="/var/www/""$APP"/
 IMG_SRC="$BACKUP_PATH"/backup-*/images
-IMG_DEST="$INSTALL_DIR"/images
 FILES_SRC="$BACKUP_PATH"/backup-*/files
-FILES_DEST="$INSTALL_DIR"/files
 
 PASSWORD="$bamboo_password"
 DBUSER="$APP"_"$BRANCH"
@@ -25,8 +23,8 @@ OLD_URL=$APP"-prelive.lab.sourcefabric.org"
 cd $BACKUP_PATH
 rm -fr backup-*
 tar xvf backup.tar.gz
-rsync -a --protect-args --rsync-path="sudo rsync" $IMG_SRC $IMG_DEST
-rsync -a --protect-args --rsync-path="sudo rsync" $FILES_SRC $FILES_DEST
+rsync -a --protect-args --rsync-path="sudo rsync" $IMG_SRC $INSTALL_DIR
+rsync -a --protect-args --rsync-path="sudo rsync" $FILES_SRC $INSTALL_DIR
 chown www-data -R $INSTALL_DIR
 
 mysql -p$PASSWORD -e "SET GLOBAL general_log = 'OFF';"
