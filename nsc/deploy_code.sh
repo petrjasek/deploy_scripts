@@ -40,7 +40,8 @@ EOF
 #}}}
 
 #{{{ Copy code
-rm -fr $INSTALL_DIR &&
+rm -fr $INSTALL_DIR/themes &&
+rm -fr $INSTALL_DIR/themes_git &&
 mkdir -p $INSTALL_DIR/conf &&
 rm -fr $WORKDIR/newscoop/images &&
 rm -fr $WORKDIR/newscoop/files &&
