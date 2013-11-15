@@ -5,6 +5,7 @@
 #############################################
 
 APP="$bamboo_app"
+DEVELOPER="$bamboo_developer"
 
 BACKUP_PATH="/var/dumps/""$APP"
 INSTALL_DIR="/var/www/""$APP"
