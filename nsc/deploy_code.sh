@@ -58,8 +58,8 @@ php composer.phar install --no-dev --prefer-dist &&
 php composer.phar dump-autoload --optimize &&
 #}}}
 
-#mv htaccess .htaccess ;
-rm .htaccess
+mv htaccess .htaccess ;
+#rm .htaccess
 rm -rf cache/* ;
 
 rm -rf images
