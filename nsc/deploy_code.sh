@@ -52,6 +52,7 @@ cd $INSTALL_DIR && pwd
 
 cd themes
 test ! -d publication_1 && (mkdir publication_1; mv * publication_1/)
+cd ..
 #}}}
 
 #{{{ Install composer
