@@ -51,7 +51,7 @@ cp $WORKDIR/deploy_scripts/nsc/system_preferences.php $INSTALL_DIR/
 cd $INSTALL_DIR && pwd
 
 cd themes
-test ! -d publication_1 && (mkdir publication_1; mv * publication_1/)
+test ! -d publication_1 && (mkdir -p publication_1/theme_1; mv * publication_1/theme_1)
 cd ..
 #}}}
 
