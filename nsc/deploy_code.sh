@@ -42,6 +42,7 @@ EOF
 #{{{ Copy code
 mkdir -p $INSTALL_DIR/conf &&
 rm -fr $WORKDIR/newscoop/images &&
+rm -fr $WORKDIR/newscoop/files &&
 cp -R $WORKDIR/newscoop/* $INSTALL_DIR/ &&
 cp -R $WORKDIR/plugins/* $INSTALL_DIR/plugins/ &&
 cp -R $WORKDIR/dependencies/include/* $INSTALL_DIR/include/ &&
