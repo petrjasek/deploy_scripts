@@ -9,7 +9,7 @@ APP="$bamboo_app"
 DEVELOPER="$bamboo_developer"
 test $APP = 'tw' && GREP_STR='Die Wochenzeitung'
 test $APP = "wacsi" && GREP_STR='About WACSI'
-URL="$BRANCH.$APP.$DEVELOPER.newscoop-test.sourcefabric.org"
+URL="$BRANCH.$APP.$DEVELOPER.sourcefabric.net"
 #}}}
 
 TESTS=1
