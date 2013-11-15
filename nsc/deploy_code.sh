@@ -49,6 +49,9 @@ cp -R $WORKDIR/themes/* $INSTALL_DIR/themes/ &&
 cp $WORKDIR/deploy_scripts/nsc/configuration.php $INSTALL_DIR/conf/ &&
 cp $WORKDIR/deploy_scripts/nsc/system_preferences.php $INSTALL_DIR/
 cd $INSTALL_DIR && pwd
+
+cd themes
+test ! -d publication_1 && (mkdir publication_1; mv * publication_1/)
 #}}}
 
 #{{{ Install composer
