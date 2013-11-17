@@ -40,18 +40,23 @@ EOF
 #}}}
 
 #{{{ Copy code
-rm -fr $INSTALL_DIR/themes &&
-rm -fr $INSTALL_DIR/themes_git &&
+rm -fr $INSTALL_DIR/themes ;
+rm -fr $INSTALL_DIR/themes_git ;
+
 mkdir -p $INSTALL_DIR/conf &&
+mkdir -p $INSTALL_DIR/themes_git/ &&
+
 rm -fr $WORKDIR/newscoop/images &&
 rm -fr $WORKDIR/newscoop/files &&
+
 cp -R $WORKDIR/newscoop/* $INSTALL_DIR/ &&
 cp -R $WORKDIR/plugins/* $INSTALL_DIR/plugins/ &&
 cp -R $WORKDIR/dependencies/include/* $INSTALL_DIR/include/ &&
-mkdir -p $INSTALL_DIR/themes_git/ &&
 cp -R $WORKDIR/themes_git/* $INSTALL_DIR/themes_git/ &&
+
 cp $WORKDIR/deploy_scripts/nsc/configuration.php $INSTALL_DIR/conf/ &&
 cp $WORKDIR/deploy_scripts/nsc/system_preferences.php $INSTALL_DIR/
+
 cd $INSTALL_DIR && pwd
 
 cd themes_git
