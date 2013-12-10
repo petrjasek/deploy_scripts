@@ -1,10 +1,14 @@
 #!/bin/sh
 
+# Environment variables:
+# BRANCH=${bamboo.planRepository.branchName}
+##
+
 . ./deploy_scripts/nsc/functions.sh
 
 #{{{ Variables
 APP="$bamboo_app"
-BRANCH=$(url_safe "$bamboo_planRepository_branchName")
+BRANCH=$(url_safe "$BRANCH")
 DEVELOPER="$bamboo_developer"
 WORKDIR="$(pwd)"
 DBUSER="$APP"_"$BRANCH"
