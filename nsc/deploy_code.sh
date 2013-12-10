@@ -1,11 +1,10 @@
 #!/bin/sh
 
-###Environment variables:###################
-# BRANCH=${bamboo.planRepository.branchName}
-#############################################
+. ./deploy_scripts/nsc/functions.sh
 
 #{{{ Variables
 APP="$bamboo_app"
+BRANCH=$(url_safe "$bamboo_planRepository_branchName")
 DEVELOPER="$bamboo_developer"
 WORKDIR="$(pwd)"
 DBUSER="$APP"_"$BRANCH"
@@ -38,6 +37,7 @@ cat >"$APP"_"$BRANCH" <<EOF
 </VirtualHost>
 EOF
 #}}}
+echo $BRANCH.$APP.$DEVELOPER.sourcefabric.net
 
 #{{{ Copy code
 rm -fr $INSTALL_DIR/themes ;
