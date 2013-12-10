@@ -4,8 +4,11 @@
 # BRANCH=${bamboo.planRepository.branchName}
 #############################################
 
+. ./deploy_scripts/nsc/functions.sh
+
 APP="$bamboo_app"
 DEVELOPER="$bamboo_developer"
+BRANCH=$(url_safe "$BRANCH")
 
 BACKUP_PATH="/var/dumps/""$APP"
 INSTALL_DIR="/var/www/""$APP"/
