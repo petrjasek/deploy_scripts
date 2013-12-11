@@ -64,8 +64,14 @@ cp $WORKDIR/deploy_scripts/nsc/system_preferences.php $INSTALL_DIR/
 cd $INSTALL_DIR && pwd
 
 cd themes_git
-test ! -d publication_* &&
-	(mkdir -p ../themes/publication_1/theme_1; mv * ../themes/publication_1/theme_1) ||
+test ! -d publication_* && (
+	mkdir -p ../themes/publication_1/theme_1;
+	mv * ../themes/publication_1/theme_1;
+	cd ../themes/publication_1;
+	for i in {2,3,4,5}; do ln -sf theme_1 theme_$i; done;
+	cd .. ;
+	for i in {2,3,4,5}; do ln -sf publication_1 publication_$i; done;
+) ||
 	mv * ../themes/
 cd ..
 #}}}
