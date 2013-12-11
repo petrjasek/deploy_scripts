@@ -10,9 +10,11 @@
 APP="$bamboo_app"
 BRANCH=$(url_safe "$BRANCH")
 DEVELOPER="$bamboo_developer"
+URL="$BRANCH.$APP.$DEVELOPER.sourcefabric.net"
+
 test $APP = 'tw' && GREP_STR='Die Wochenzeitung'
 test $APP = "wacsi" && GREP_STR='About WACSI'
-URL="$BRANCH.$APP.$DEVELOPER.sourcefabric.net"
+test $APP = "zentralplus" && GREP_STR='Zentralschweiz'
 #}}}
 
 TESTS=1
