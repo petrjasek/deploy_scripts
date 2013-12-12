@@ -82,7 +82,6 @@ cd ..
 
 (
 mv htaccess .htaccess ;
-#rm .htaccess
 rm -rf cache/* ;
 
 rm -rf images
