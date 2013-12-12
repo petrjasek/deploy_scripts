@@ -15,12 +15,6 @@ DBUSER="$APP"_"$BRANCH"
 DBNAME="$DBUSER"_db
 DBUSER=$(echo "$DBUSER" | md5sum | awk '{print substr($0,0,15)}') # first 16 symbols of md5 hash
 INSTALL_DIR="/var/www/$APP/$BRANCH"
-
-#default image folder:
-IMG_FOLDER="images"
-#image folder for stable branch:
-#test "$BRANCH" = 'wobs-stable' && IMG_FOLDER="images_prelive"
-
 #}}}
 
 #{{{ Create virtual host for instance
@@ -85,9 +79,9 @@ mv htaccess .htaccess ;
 rm -rf cache/* ;
 
 rm -rf images ;
-ln -s ../"$IMG_FOLDER" images ;
+ln -s ../images images ;
 rm -rf files ;
-ln -s ../"$IMG_FOLDER" files ;
+ln -s ../files files ;
 ) ;
 
 #{{{ Install composer
