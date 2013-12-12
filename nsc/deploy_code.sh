@@ -96,7 +96,7 @@ export COMPOSER_HOME="$INSTALL_DIR" &&
 curl -s https://getcomposer.org/installer | php &&
 php composer.phar install --no-dev --prefer-dist &&
 php composer.phar dump-autoload --optimize &&
-) &
+) &&
 #}}}
 
 #{{{ Generate DB config file
