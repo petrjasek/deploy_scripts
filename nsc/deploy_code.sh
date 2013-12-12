@@ -81,6 +81,7 @@ cd ..
 #}}}
 
 (
+pwd
 mv htaccess .htaccess ;
 rm -rf cache/* ;
 
