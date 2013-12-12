@@ -64,7 +64,7 @@ cp -R $WORKDIR/themes_git/* $INSTALL_DIR/themes_git/ &&
 cp $WORKDIR/deploy_scripts/nsc/configuration.php $INSTALL_DIR/conf/ &&
 cp $WORKDIR/deploy_scripts/nsc/system_preferences.php $INSTALL_DIR/
 
-cd $INSTALL_DIR && pwd
+cd $INSTALL_DIR
 
 cd themes_git
 test ! -d publication_* && (
@@ -76,19 +76,18 @@ test ! -d publication_* && (
 	for i in $(seq 2 5); do ln -sf publication_1 publication_$i; done;
 ) ||
 	mv * ../themes/
-cd ..
 ) ;
 #}}}
 
 (
-pwd
+cd $INSTALL_DIR &&
 mv htaccess .htaccess ;
 rm -rf cache/* ;
 
-rm -rf images
-ln -s ../"$IMG_FOLDER" images
-rm -rf files
-ln -s ../"$IMG_FOLDER" files
+rm -rf images ;
+ln -s ../"$IMG_FOLDER" images ;
+rm -rf files ;
+ln -s ../"$IMG_FOLDER" files ;
 ) ;
 
 #{{{ Install composer
