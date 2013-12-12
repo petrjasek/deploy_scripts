@@ -17,7 +17,7 @@ FILES_SRC="$BACKUP_PATH"/backup-*/files
 
 PASSWORD="$bamboo_password"
 DBUSER="$APP"_"$BRANCH"
-DBNAME=$("$DBUSER" | awk '{print substr($0,0,60)}')_db
+DBNAME=$(echo "$DBUSER" | awk '{print substr($0,0,60)}')_db
 DBUSER=$(echo "$DBUSER" | md5sum | awk '{print substr($0,0,15)}') # first 16 symbols of md5 hash
 DUMP_FILE=lab_"$APP"-prelive-database.sql
 OLD_URL=$APP"-prelive.lab.sourcefabric.org"
