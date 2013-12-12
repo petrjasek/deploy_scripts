@@ -92,6 +92,7 @@ ln -s ../"$IMG_FOLDER" files ;
 
 #{{{ Install composer
 (
+cd $INSTALL_DIR &&
 export COMPOSER_HOME="$INSTALL_DIR" &&
 curl -s https://getcomposer.org/installer | php &&
 php composer.phar install --no-dev --prefer-dist &&
@@ -101,6 +102,7 @@ php composer.phar dump-autoload --optimize
 
 #{{{ Generate DB config file
 (
+cd $INSTALL_DIR &&
 cat >conf/database_conf.php <<EOF
 <?php
 global \$Campsite;
@@ -124,6 +126,6 @@ EOF
 (
 chown -R www-data:www-data $INSTALL_DIR &&
 #su - www-data -c "php $INSTALL_DIR/upgrade.php" &&
-rm conf/upgrading.php 2> /dev/null ;
+rm $INSTALL_DIR/conf/upgrading.php 2> /dev/null ;
 service apache2 reload
 ) 
