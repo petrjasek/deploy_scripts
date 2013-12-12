@@ -24,7 +24,8 @@ IMG_FOLDER="images"
 #}}}
 
 #{{{ Create virtual host for instance
-cd /etc/apache2/sites-enabled/
+(
+cd /etc/apache2/sites-enabled/ &&
 cat >"$APP"_"$BRANCH" <<EOF
 <VirtualHost *:80>
       DocumentRoot $INSTALL_DIR
@@ -42,8 +43,10 @@ cat >"$APP"_"$BRANCH" <<EOF
 EOF
 #}}}
 echo $BRANCH.$APP.$DEVELOPER.sourcefabric.net
+) &&
 
 #{{{ Copy code
+(
 rm -fr $INSTALL_DIR/themes ;
 rm -fr $INSTALL_DIR/themes_git ;
 
@@ -74,15 +77,10 @@ test ! -d publication_* && (
 ) ||
 	mv * ../themes/
 cd ..
+) ;
 #}}}
 
-#{{{ Install composer
-export COMPOSER_HOME="$INSTALL_DIR" &&
-curl -s https://getcomposer.org/installer | php &&
-php composer.phar install --no-dev --prefer-dist &&
-php composer.phar dump-autoload --optimize &&
-#}}}
-
+(
 mv htaccess .htaccess ;
 #rm .htaccess
 rm -rf cache/* ;
@@ -91,8 +89,19 @@ rm -rf images
 ln -s ../"$IMG_FOLDER" images
 rm -rf files
 ln -s ../"$IMG_FOLDER" files
+) ;
+
+#{{{ Install composer
+(
+export COMPOSER_HOME="$INSTALL_DIR" &&
+curl -s https://getcomposer.org/installer | php &&
+php composer.phar install --no-dev --prefer-dist &&
+php composer.phar dump-autoload --optimize &&
+) &
+#}}}
 
 #{{{ Generate DB config file
+(
 cat >conf/database_conf.php <<EOF
 <?php
 global \$Campsite;
@@ -110,10 +119,12 @@ global \$Campsite;
 \$Campsite['db']['pass'] = \$Campsite['DATABASE_PASSWORD'];
 ?>
 EOF
+) &&
 #}}}
 
+(
 chown -R www-data:www-data $INSTALL_DIR &&
 #su - www-data -c "php $INSTALL_DIR/upgrade.php" &&
 rm conf/upgrading.php 2> /dev/null ;
 service apache2 reload
-
+) 
