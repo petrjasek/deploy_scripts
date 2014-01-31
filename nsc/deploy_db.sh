@@ -10,6 +10,8 @@ APP="$bamboo_app"
 DEVELOPER="$bamboo_developer"
 BRANCH=$(url_safe "$BRANCH")
 
+test ! -z "$bamboo_lab" && LAB_INSTANCE="$bamboo_lab" || LAB_INSTANCE="prelive"
+
 BACKUP_PATH="/var/dumps/""$APP"
 INSTALL_DIR="/var/www/""$APP"/
 IMG_SRC="$BACKUP_PATH"/backup-*/images
@@ -19,8 +21,8 @@ PASSWORD="$bamboo_password"
 DBUSER="$APP"_"$BRANCH"
 DBNAME=$(echo "$DBUSER" | awk '{print substr($0,0,60)}')_db
 DBUSER=$(echo "$DBUSER" | md5sum | awk '{print substr($0,0,15)}') # first 16 symbols of md5 hash
-DUMP_FILE=lab_"$APP"-prelive-database.sql
-OLD_URL=$APP"-prelive.lab.sourcefabric.org"
+DUMP_FILE=lab_"$APP"-"$LAB_INSTANCE"-database.sql
+OLD_URL=$APP"-"$LAB_INSTANCE".lab.sourcefabric.org"
 
 
 cd $BACKUP_PATH
