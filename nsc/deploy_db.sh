@@ -26,8 +26,6 @@ OLD_URL=$APP"-"$LAB_INSTANCE".lab.sourcefabric.org"
 
 
 cd $BACKUP_PATH
-rm -fr backup-*
-tar xvf backup.tar.gz
 rsync -a --protect-args --rsync-path="sudo rsync" $IMG_SRC $INSTALL_DIR
 rsync -a --protect-args --rsync-path="sudo rsync" $FILES_SRC $INSTALL_DIR
 chown -R www-data $INSTALL_DIR
