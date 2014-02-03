@@ -13,6 +13,4 @@ ssh -p$PORT lab@"$DEVELOPER".sourcefabric.net -x "sudo mkdir -p /var/dumps/$APP"
 echo rsync -a --rsh="ssh -p$PORT" --protect-args --rsync-path="sudo rsync" $REMOTE_PATH lab@"$DEVELOPER".sourcefabric.net:"$LOCAL_PATH"
 rsync -a --rsh="ssh -p$PORT" --protect-args --rsync-path="sudo rsync" $REMOTE_PATH lab@"$DEVELOPER".sourcefabric.net:"$LOCAL_PATH"
 
-cd $BACKUP_PATH
-rm -fr backup-*
-tar xvf backup.tar.gz
+ssh -p$PORT lab@"$DEVELOPER".sourcefabric.net -x "cd $BACKUP_PATH; rm -fr backup-* ;tar xvf backup.tar.gz"
