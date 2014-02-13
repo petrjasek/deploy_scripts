@@ -41,6 +41,8 @@ echo $BRANCH.$APP.$DEVELOPER.sourcefabric.net
 
 #{{{ Copy code
 (
+rm -fr $INSTALL_DIR/images ;
+rm -fr $INSTALL_DIR/files ;
 rm -fr $INSTALL_DIR/themes ;
 rm -fr $INSTALL_DIR/themes_git ;
 
