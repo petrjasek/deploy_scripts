@@ -72,4 +72,10 @@ $GLOBALS['Campsite']['system_preferences'] = array(
 'PLUGIN_RECAPTCHA_PUBLIC_KEY' => '6Lepb80SAAAAADHtn8hgGes-98V7klp7CI3C0rjQ',
 'PLUGIN_RECAPTCHA_PRIVATE_KEY' => '6Lepb80SAAAAAIXonXYW9sL3j-SXrRGyR4n7Nml3',
 'stat_ask_time' => '1693910000');
+'GeoSearchLocalGeonames' => '1',
+'GeoSearchMapquestNominatim' => '1',
+'MediaRichTextCaptions' => 'N',
+'MediaCaptionLength' => '255',
+'EmailFromAddress' => 'admin@example.com',
+'EmailContact' => 'admin@example.com');
 ?>
