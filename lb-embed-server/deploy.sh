@@ -12,7 +12,7 @@ frontend_url="$3"
 		frontend_url=$backend_url
 
 # prepare and copy srcs
-working_dir=$(dirname $0)
+working_dir=$(readlink -e $(dirname $0))
 cd $root
 
 # generate config

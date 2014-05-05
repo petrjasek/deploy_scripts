@@ -2,7 +2,8 @@
 
 root=/var/www/nodejs-dev
 
-working_dir=$(dirname $0)
+working_dir=$(readlink -e $(dirname $0))
+
 cd $root
 
 # run tests
