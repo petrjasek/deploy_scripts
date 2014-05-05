@@ -1,0 +1,8 @@
+export LC_CTYPE="en_US.UTF-8"
+
+. $root/host
+
+root=/var/opt
+scripts=$root/apy_instances/scripts
+instances_root=$root/apy_instances
+start_folder=$root/apy_start
