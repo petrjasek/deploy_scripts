@@ -9,7 +9,7 @@ cat <<EOF
         "nodejs": "appjs.log"
     },
     "paths": {
-        "root": "$root",
+        "root": "$root/",
         "nodeModules": "<%= paths.root %>node_modules/",
         "scriptsRoot": "<%= paths.root %>gui-resources/",
         "scripts": "<%= paths.scriptsRoot %>scripts/js/",
