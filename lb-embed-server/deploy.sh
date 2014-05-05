@@ -3,11 +3,12 @@
 root=/var/www/nodejs-dev
 
 backend_url="$1"
-frontend_url="$2"
-[ "$1" = "" ] &&
-		echo "Usage: $0 backend_url:backend_port [frontend_url]" &&
-		exit 1
+backend_port="$2"
+frontend_url="$3"
 [ "$2" = "" ] &&
+		echo "Usage: $0 backend_url backend_port [frontend_url]" &&
+		exit 1
+[ "$3" = "" ] &&
 		frontend_url=$backend_url
 
 # prepare and copy srcs
