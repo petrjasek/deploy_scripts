@@ -1,7 +1,7 @@
 cat <<EOF
 {
     "servers": {
-        "nodejs": "$backend_url:$backend_port",
+        "nodejs": "$backend_url",
         "proxy": "$frontend_url",
         "livereload": 35729
     },
@@ -9,7 +9,7 @@ cat <<EOF
         "nodejs": "appjs.log"
     },
     "paths": {
-        "root": "./",
+        "root": "$root",
         "nodeModules": "<%= paths.root %>node_modules/",
         "scriptsRoot": "<%= paths.root %>gui-resources/",
         "scripts": "<%= paths.scriptsRoot %>scripts/js/",
