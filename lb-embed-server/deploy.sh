@@ -14,7 +14,7 @@ frontend_url="$3"
 # prepare and copy srcs
 working_dir=$(dirname $0)
 mkdir -p $root 2>/dev/null
-cp -rf * .* $root/
+cp -rf lb-embed-server/* lb-embed-server/.* $root/
 cd $root
 
 # generate config
