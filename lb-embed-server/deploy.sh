@@ -18,7 +18,7 @@ cp -rf lb-embed-server/* lb-embed-server/.* $root/
 cd $root
 
 # generate config
-source $working_dir/files/config.json.tpl > config.json
+. $working_dir/files/config.json.tpl > config.json
 
 # install deps
 npm --allow-root install
