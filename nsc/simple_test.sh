@@ -18,7 +18,8 @@ test $APP = "wacsi" && GREP_STR='About WACSI'
 test $APP = "zentralplus" && GREP_STR='Zentralschweiz'
 test $APP = "newcustodian" && GREP_STR='Council'
 test $APP = "journalb" && GREP_STR='Journal B'
-test $APP = "elfaro" && GREP_STR='El Faro'
+test $APP = "averdade" && GREP_STR='Voltar ao Jornal '
+test $APP = "averdade2" && GREP_STR='Voltar ao Jornal '
 #}}}
 
 TESTS=1
