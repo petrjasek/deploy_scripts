@@ -13,14 +13,26 @@ DEVELOPER="$bamboo_developer"
 URL="$BRANCH.$APP.$DEVELOPER.sourcefabric.net"
 
 GREP_STR='test_for_this_instance_is_undefined'
-test $APP = "averdade" && GREP_STR='Voltar ao Jornal '
-test $APP = "averdade2" && GREP_STR='Voltar ao Jornal '
-test $APP = "journalb" && GREP_STR='Journal B'
-test $APP = "newcustodian" && GREP_STR='Council' # it's default data
-test $APP = 'tw' && GREP_STR='Die Wochenzeitung'
-test $APP = 'valjevske' && GREP_STR='Nezavisne internet novine Kolubarskog okruga'
-test $APP = "wacsi" && GREP_STR='About WACSI'
-test $APP = "zentralplus" && GREP_STR='Zentralschweiz'
+test $APP = "averdade" &&
+	GREP_STR='Voltar ao Jornal '
+test $APP = "averdade2" &&
+	GREP_STR='Voltar ao Jornal '
+test $APP = "broadcaster" &&
+	GREP_STR='Broadcaster - Airtime Theme for Newscoop'
+test $APP = "journalb" &&
+	GREP_STR='Journal B'
+test $APP = "newcustodian" &&
+	GREP_STR='Council' # it's default data
+test $APP = 'tommy' &&
+	GREP_STR='Tommy'
+test $APP = 'tw' &&
+	GREP_STR='Die Wochenzeitung'
+test $APP = 'valjevske' &&
+	GREP_STR='Nezavisne internet novine Kolubarskog okruga'
+test $APP = "wacsi" &&
+	GREP_STR='About WACSI'
+test $APP = "zentralplus" &&
+	GREP_STR='Zentralschweiz'
 #}}}
 
 TESTS=1
