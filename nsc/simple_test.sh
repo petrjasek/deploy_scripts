@@ -12,7 +12,7 @@ BRANCH=$(url_safe "$BRANCH")
 DEVELOPER="$bamboo_developer"
 URL="$BRANCH.$APP.$DEVELOPER.sourcefabric.net"
 
-GREP_STR='undefined'
+GREP_STR='test_for_this_instance_is_undefined'
 test $APP = 'tw' && GREP_STR='Die Wochenzeitung'
 test $APP = "wacsi" && GREP_STR='About WACSI'
 test $APP = "zentralplus" && GREP_STR='Zentralschweiz'
