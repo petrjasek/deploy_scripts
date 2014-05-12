@@ -1,0 +1,50 @@
+export LC_CTYPE="en_US.UTF-8"
+
+root=/var/opt
+repo_allypy=/opt/ally-py
+repo_superdesk=/opt/ally-py/superdesk
+scripts=$root/instances/scripts
+start_folder=$root/start
+instances_root=$root/instances
+mongrel2=$root/mongrel2
+. $root/host
+
+create_properties() {
+
+    [ "$allypy" = "" ] && echo "ERROR! create_prepertires: undefined allypy" && exit 1
+
+    [ -f $allypy/application.properties ] && unlink $allypy/application.properties
+    [ -f $allypy/application.properties.additional ] && unlink $allypy/application.properties.additional
+    [ -f $allypy/plugins.properties ] && unlink $allypy/plugins.properties
+    [ -f $allypy/plugins.properties.additional ] && unlink $allypy/plugins.properties.additional
+
+    python3 $allypy/application.py -dump
+
+    . $scripts/files/application.properties.tpl >> $allypy/application.properties
+    [ -f $allypy/application.properties.custom ] && cat $allypy/application.properties.custom >> $allypy/application.properties
+    cp $allypy/application.properties $allypy/application.properties.additional
+    . $scripts/files/application.properties.additional.tpl >> $allypy/application.properties.additional
+
+    . $scripts/files/plugins.properties.tpl >> $allypy/plugins.properties
+    [ -f $allypy/plugins.properties.custom ] && cat $allypy/plugins.properties.custom >> $allypy/plugins.properties
+    cp $allypy/plugins.properties $allypy/plugins.properties.additional
+    . $scripts/files/plugins.properties.additional.tpl >> $allypy/plugins.properties.additional
+}
+
+
+post_create() {
+    mkdir -p /var/opt/www/$container
+    . $scripts/files/index.html.tpl > /var/opt/www/$container/index.html
+}
+
+post_delete() {
+    rm -r /var/www/$container
+}
+
+post_update() {
+    echo
+}
+
+instance_backup() {
+    echo
+}
