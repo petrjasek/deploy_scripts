@@ -12,13 +12,29 @@ BRANCH=$(url_safe "$BRANCH")
 DEVELOPER="$bamboo_developer"
 URL="$BRANCH.$APP.$DEVELOPER.sourcefabric.net"
 
-GREP_STR='undefined'
-test $APP = 'tw' && GREP_STR='Die Wochenzeitung'
-test $APP = "wacsi" && GREP_STR='About WACSI'
-test $APP = "zentralplus" && GREP_STR='Zentralschweiz'
-test $APP = "newcustodian" && GREP_STR='Council'
-test $APP = "journalb" && GREP_STR='Journal B'
-test $APP = "elfaro" && GREP_STR='El Faro'
+GREP_STR='test_for_this_app_is_not_defined'
+test $APP = "averdade" &&
+	GREP_STR='Voltar ao Jornal '
+test $APP = "averdade2" &&
+	GREP_STR='Voltar ao Jornal '
+test $APP = "broadcaster" &&
+	GREP_STR='Broadcaster - Airtime Theme for Newscoop'
+test $APP = "elfaro" &&
+	GREP_STR='El Faro'
+test $APP = "journalb" &&
+	GREP_STR='Journal B'
+test $APP = "newcustodian" &&
+	GREP_STR='Council' # it's default data
+test $APP = 'tommy' &&
+	GREP_STR='Tommy'
+test $APP = 'tw' &&
+	GREP_STR='Die Wochenzeitung'
+test $APP = 'valjevske' &&
+	GREP_STR='Nezavisne internet novine Kolubarskog okruga'
+test $APP = "wacsi" &&
+	GREP_STR='About WACSI'
+test $APP = "zentralplus" &&
+	GREP_STR='Zentralschweiz'
 #}}}
 
 TESTS=1
