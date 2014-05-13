@@ -25,3 +25,4 @@ service nginx reload
 
 . $PWD/templates/supervisor.tpl > /etc/supervisor/conf.d/$INSTANCE.conf
 supervisorctl reread
+supervisorctl update

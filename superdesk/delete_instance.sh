@@ -13,3 +13,4 @@ service nginx reload
 
 rm /etc/supervisor/conf.d/$INSTANCE.conf
 supervisorctl reread
+supervisorctl update

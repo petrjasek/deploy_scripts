@@ -22,4 +22,4 @@ pip install -U gunicorn
 
 # restart application
 supervisorctl update
-#supervisorctl restart $instance
+supervisorctl restart $instance
