@@ -19,7 +19,7 @@ cp -fr $src_path/{*,.*} $backend_path/
 
 # install dependencies
 pip install -U pip distribute
-pip install -U -r requirements.txt
+pip install -U -r $backend_path/requirements.txt
 pip install -U gunicorn
 
 # restart application
