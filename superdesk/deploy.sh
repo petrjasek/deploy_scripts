@@ -9,10 +9,12 @@ backend_path=$instance_path/backend
 
 # create working directory
 mkdir -p $backend_path
-#cp -fr $src_path $instance_path/
+echo cp -fr $src_path $backend_path/
+cp -fr $src_path $backend_path/
 #cd $instance_path
 #mv superdesk backend
-gvfs-move $src_path $backend_path
+
+exit 0
 
 # create/reuse virtual environment
 [ ! -f $instance_path/env/bin/activate ] && (
