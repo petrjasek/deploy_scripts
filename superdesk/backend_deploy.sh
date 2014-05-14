@@ -11,9 +11,10 @@ INSTANCE_PATH=/var/opt/superdesk_instances/$INSTANCE
 BACKEND_PATH=$INSTANCE_PATH/backend
 
 
-# flush src dir and copy fresh one
+# flush src dir, copy fresh one and go there
 rm -fr $BACKEND_PATH
 cp -fr $SRC_PATH $BACKEND_PATH
+cd $BACKEND_PATH
 
 # create/reuse virtual environment
 [ ! -f $INSTANCE_PATH/env/bin/activate ] && (
