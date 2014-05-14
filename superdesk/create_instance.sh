@@ -12,8 +12,10 @@ NGINX_PORT=82
 STARTING_PORT=9090
 ROOT=/var/opt/superdesk_instances
 INSTANCE_ROOT=$ROOT/$INSTANCE
+LOG_PATH=$INSTANCE_ROOT/logs
 
 mkdir -p $INSTANCE_ROOT
+mkdir -p $LOG_PATH
 
 rm $INSTANCE_ROOT/.port 2>/dev/null
 PORT=$(expr $(cat $ROOT/*/.port | sort -nr | head -n 1) + 1) 2>/dev/null 
