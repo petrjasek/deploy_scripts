@@ -32,4 +32,4 @@ supervisorctl update
 supervisorctl restart superdesk_$INSTANCE
 
 # create admin user
-python manage.py users:create -u admin -p admin
+python manage.py users:create -u admin -p admin 2>&1
