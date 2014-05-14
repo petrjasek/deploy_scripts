@@ -1,7 +1,7 @@
 #!/bin/sh
 
 [ -z "$2" ] &&
-echo "Usage: $0 instance_name instance_url" &&
+echo "Usage: $0 INSTANCE_NAME INSTANCE_URL" &&
 echo "       $0 master master.sd-test.sourcefabric.org" &&
 exit 1
 

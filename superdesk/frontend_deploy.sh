@@ -1,6 +1,10 @@
 #!/bin/sh
 
-[ -z $2 ] && echo "Usage: $0 INSTANCE_NAME URL" && exit 1
+[ -z "$2" ] &&
+echo "Usage: $0 INSTANCE_NAME INSTANCE_URL" &&
+echo "       $0 master master.sd-test.sourcefabric.org" &&
+exit 1
+
 
 INSTANCE_NAME="$1"
 URL="$2"
