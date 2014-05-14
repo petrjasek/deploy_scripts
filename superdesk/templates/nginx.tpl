@@ -14,9 +14,9 @@ server {
 		proxy_redirect http://superdesk_$INSTANCE https://$URL;
 	}
 
-    location / {
-        root /var/opt/superdesk_instances/$INSTANCE/frontend/dist;
-    }
+	location / {
+		root /var/opt/superdesk_instances/$INSTANCE/frontend/dist;
+	}
 
 }
 EOF
