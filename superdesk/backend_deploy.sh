@@ -14,8 +14,7 @@ BACKEND_PATH=$INSTANCE_PATH/backend
 # flush src dir, copy fresh one and go there
 (
 	rm -fr $BACKEND_PATH ;
-	cp -fr $SRC_PATH $BACKEND_PATH &&
-	cd $BACKEND_PATH
+	cp -fr $SRC_PATH $BACKEND_PATH
 ) &&
 
 # create/reuse virtual environment
@@ -38,6 +37,10 @@ BACKEND_PATH=$INSTANCE_PATH/backend
 ) &&
 
 # create admin user
-python manage.py users:create -u admin -p admin 2>&1 ;
+(
+	cd $BACKEND_PATH &&
+	python manage.py users:create -u admin -p admin ;
+	echo
+) &&
 
 exit 0
