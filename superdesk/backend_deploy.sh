@@ -40,7 +40,7 @@ BACKEND_PATH=$INSTANCE_PATH/backend
 # create admin user
 (
 	cd $BACKEND_PATH &&
-	python manage.py users:create -u admin -p admin ;
+	env MONGO_DBNAME=superdesk_$INSTANCE python manage.py users:create -u admin -p admin ;
 	echo
 ) &&
 
