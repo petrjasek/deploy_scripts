@@ -22,9 +22,9 @@ PORT=$(expr $(cat $ROOT/*/.port | sort -nr | head -n 1) + 1) 2>/dev/null
 [ $PORT -le $STARTING_PORT ] && PORT=$STARTING_PORT
 echo $PORT > $INSTANCE_ROOT/.port
 
-. $PWD/templates/nginx.tpl > /etc/nginx/sites-enabled/$INSTANCE
+. $PWD/templates/nginx.tpl > /etc/nginx/sites-enabled/superdesk_$INSTANCE
 service nginx reload
 
-. $PWD/templates/supervisor.tpl > /etc/supervisor/conf.d/$INSTANCE.conf
+. $PWD/templates/supervisor.tpl > /etc/supervisor/conf.d/superdesk_$INSTANCE.conf
 supervisorctl reread
 supervisorctl update

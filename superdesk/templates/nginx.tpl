@@ -1,5 +1,5 @@
 cat <<EOF
-upstream $INSTANCE {
+upstream superdesk_$INSTANCE {
 	server 127.0.0.1:$PORT;
 }
  
@@ -10,8 +10,8 @@ server {
 	error_log      $LOG_PATH/error.log;
 
 	location /api {
-		proxy_pass      http://$INSTANCE;
-		proxy_redirect http://$INSTANCE https://$URL;
+		proxy_pass      http://superdesk_$INSTANCE;
+		proxy_redirect http://superdesk_$INSTANCE https://$URL;
 	}
 
     location / {
