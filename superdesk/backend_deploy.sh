@@ -1,27 +1,34 @@
 #!/bin/bash
 
-[ -z $2 ] && echo "Usage: $0 instance_name src_path" && exit 1
+[ -z "$2" ] &&
+echo "Usage: $0 INSTANCE_NAME SRC_PATH" &&
+echo "       $0 master ./superdesk-server/" &&
+exit 1
 
-instance="$1"
-src_path="$2"
-instance_path=/var/opt/superdesk_instances/$instance
-backend_path=$instance_path/backend
+INSTANCE="$1"
+SRC_PATH="$2"
+INSTANCE_PATH=/var/opt/superdesk_instances/$INSTANCE
+BACKEND_PATH=$INSTANCE_PATH/backend
 
 
-rm -fr $backend_path
-cp -fr $src_path $instance_path/backend
+# flush src dir and copy fresh one
+rm -fr $BACKEND_PATH
+cp -fr $SRC_PATH $BACKEND_PATH
 
 # create/reuse virtual environment
-[ ! -f $instance_path/env/bin/activate ] && (
-    virtualenv-3.4 -p python3.3 $instance_path/env;
+[ ! -f $INSTANCE_PATH/env/bin/activate ] && (
+    virtualenv-3.4 -p python3.3 $INSTANCE_PATH/env;
 )
-. $instance_path/env/bin/activate;
+. $INSTANCE_PATH/env/bin/activate;
 
 # install dependencies
 pip install -U pip distribute
-pip install -U -r $backend_path/requirements.txt
+pip install -U -r $BACKEND_PATH/requirements.txt
 pip install -U gunicorn
 
 # restart application
 supervisorctl update
-supervisorctl restart superdesk_$instance
+supervisorctl restart superdesk_$INSTANCE
+
+# create admin user
+python manage.py users:create -u admin -p admin
