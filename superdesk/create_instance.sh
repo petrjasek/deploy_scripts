@@ -27,7 +27,6 @@ service nginx reload
 
 . $PWD/templates/supervisor.tpl > /etc/supervisor/conf.d/superdesk_$INSTANCE.conf
 supervisorctl reread
-supervisorctl update
 
 mkdir -p /var/www/sd-test/$INSTANCE
 . $PWD/templates/index.html.tpl > /var/www/sd-test/$INSTANCE/index.html
