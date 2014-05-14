@@ -8,18 +8,22 @@ exit 1
 
 INSTANCE_NAME="$1"
 URL="$2"
-
 ROOT_PATH=/var/opt/superdesk_instances/$INSTANCE_NAME
 FRONTEND_PATH=$ROOT_PATH/frontend
 
-mkdir -p $ROOT_PATH
+# create working dir and copy files from repo there
+mkdir -p $ROOT_PATH ;
+cp frontend $ROOT_PATH/ -r &&
+cd $FRONTEND_PATH &&
 
-cp frontend $ROOT_PATH/ -r
-cd $FRONTEND_PATH
+# install tools
+sudo npm -g install grunt-cli bower &&
 
-sudo npm -g install grunt-cli bower
+# install dependencies
+npm install &&
+bower update --allow-root --force-latest &&
 
-npm install
-bower update --allow-root --force-latest
+# deploy
+grunt build --server="$URL" &&
 
-grunt build --server="$URL"
+exit 0

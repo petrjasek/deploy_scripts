@@ -5,6 +5,7 @@ echo "Usage: $0 INSTANCE_NAME SRC_PATH" &&
 echo "       $0 master ./superdesk-server/" &&
 exit 1
 
+
 INSTANCE="$1"
 SRC_PATH="$2"
 INSTANCE_PATH=/var/opt/superdesk_instances/$INSTANCE
