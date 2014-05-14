@@ -1,5 +1,7 @@
 #!/bin/bash
 
+[ -z $1 ] && echo "Usage: $0 instance_name" && exit 1
+
 root_path="/var/opt/apy_instances/"$1""
 
 # create config directory
