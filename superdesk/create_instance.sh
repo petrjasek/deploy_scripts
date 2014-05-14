@@ -29,4 +29,5 @@ service nginx reload
 supervisorctl reread
 supervisorctl update
 
+mkdir -p /var/www/sd-test/$INSTANCE
 . $PWD/templates/index.html.tpl > /var/www/sd-test/$INSTANCE/index.html

@@ -8,9 +8,11 @@ INSTANCE_ROOT=$ROOT/$INSTANCE
 
 rm -r $INSTANCE_ROOT
 
-rm /etc/nginx/sites-enabled/$INSTANCE
+rm /etc/nginx/sites-enabled/superdesk_$INSTANCE
 service nginx reload
 
-rm /etc/supervisor/conf.d/$INSTANCE.conf
+rm /etc/supervisor/conf.d/superdesk_$INSTANCE.conf
 supervisorctl reread
 supervisorctl update
+
+rm -r /var/www/sd-test/$INSTANCE/
