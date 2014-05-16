@@ -15,7 +15,7 @@ RESULTS_DIR=$PWD/../../results
 cd $FRONTEND_PATH &&
 
 # run tests
-grunt ci:bamboo &&
+grunt ci:bamboo ;
 
 mkdir -p $RESULTS_DIR 2> /dev/null ;
 mv server-test-results.xml client-test-results.xml $RESULTS_DIR &&
