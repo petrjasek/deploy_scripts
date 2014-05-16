@@ -12,11 +12,13 @@ FRONTEND_PATH=$ROOT_PATH/frontend
 PWD=$(readlink -e $(dirname $0))
 RESULTS_DIR=$PWD/../../results
 
+# go to sources
 cd $FRONTEND_PATH &&
 
 # run tests
 grunt ci:bamboo &&
 
+# copy test results
 (
 	mkdir -p $RESULTS_DIR 2> /dev/null ;
 	mv test-results.xml $RESULTS_DIR
