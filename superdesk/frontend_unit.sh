@@ -18,6 +18,6 @@ cd $FRONTEND_PATH &&
 grunt ci:bamboo ;
 
 mkdir -p $RESULTS_DIR 2> /dev/null ;
-mv server-test-results.xml client-test-results.xml $RESULTS_DIR &&
+mv test-results.xml $RESULTS_DIR &&
 
 exit 0
