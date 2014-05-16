@@ -10,13 +10,14 @@ INSTANCE_NAME="$1"
 ROOT_PATH=/var/opt/superdesk_instances/$INSTANCE_NAME
 FRONTEND_PATH=$ROOT_PATH/frontend
 PWD=$(readlink -e $(dirname $0))
+RESULTS_DIR=$PWD/../../results
 
 cd $FRONTEND_PATH &&
 
 # run tests
 grunt ci:bamboo &&
 
-mkdir -p $PWD/../../results/ 2> /dev/null ;
-mv server-test-results.xml client-test-results.xml $PWD/../../results/ &&
+mkdir -p $RESULTS_DIR 2> /dev/null ;
+mv server-test-results.xml client-test-results.xml $RESULTS_DIR &&
 
 exit 0
