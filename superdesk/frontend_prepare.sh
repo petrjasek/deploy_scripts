@@ -1,6 +1,6 @@
 #!/bin/sh
 
-[ -z "$2" ] &&
+[ -z "$1" ] &&
 echo "Usage: $0 INSTANCE_NAME" &&
 echo "       $0 master" &&
 exit 1
