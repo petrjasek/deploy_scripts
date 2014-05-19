@@ -17,7 +17,7 @@ cd $FRONTEND_PATH &&
 
 
 # install dependency
-npm install phantomjs &&
+sudo npm install -g phantomjs karma-phantomjs-launcher &&
 
 # run tests
 grunt bamboo &&
