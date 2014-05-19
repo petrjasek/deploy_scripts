@@ -16,6 +16,7 @@ RESULTS_DIR=$PWD/../../results
 cd $FRONTEND_PATH &&
 
 # run tests
+webdriver-manager update
 grunt bamboo &&
 
 # copy test results
