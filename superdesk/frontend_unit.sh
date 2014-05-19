@@ -16,7 +16,7 @@ RESULTS_DIR=$PWD/../../results
 cd $FRONTEND_PATH &&
 
 # run tests
-grunt ci:bamboo &&
+grunt bamboo &&
 
 # copy test results
 (
