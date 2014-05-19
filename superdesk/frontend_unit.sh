@@ -15,8 +15,11 @@ RESULTS_DIR=$PWD/../../results
 # go to sources
 cd $FRONTEND_PATH &&
 
+
+# install dependency
+npm install phantomjs &&
+
 # run tests
-webdriver-manager update
 grunt bamboo &&
 
 # copy test results
