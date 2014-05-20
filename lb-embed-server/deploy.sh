@@ -12,17 +12,11 @@ frontend_url="$3"
 		frontend_url=$backend_url
 
 # prepare and copy srcs
-working_dir=$(dirname $0)
-mkdir -p $root 2>/dev/null
-cp -rf lb-embed-server/* lb-embed-server/.* $root/
+working_dir=$(readlink -e $(dirname $0))
 cd $root
 
 # generate config
 . $working_dir/files/config.json.tpl > config.json
-
-# install deps
-npm --allow-root install
-bower --allow-root install
 
 # restart server
 grunt server:forever:restart

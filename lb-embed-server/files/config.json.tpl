@@ -1,7 +1,7 @@
 cat <<EOF
 {
     "servers": {
-        "nodejs": "$backend_url",
+        "nodejs": "$backend_url:$backend_port",
         "proxy": "$frontend_url",
         "livereload": 35729
     },
