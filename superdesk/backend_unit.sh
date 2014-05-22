@@ -25,6 +25,9 @@ RESULTS_FILE=$RESULTS_DIR/unit.xml
 )
 . $INSTANCE_PATH/env/bin/activate &&
 
+# update dependencies
+pip install -r $INSTANCE_PATH/requirements.txt -U
+
 # run tests
 cd $SRC_PATH &&
 nosetests -sv --with-xunit --xunit-file=$RESULTS_FILE
